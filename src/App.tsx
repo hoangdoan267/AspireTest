@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Text, View, StatusBar} from 'react-native';
+import {Text, View, StatusBar, Image} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createStackNavigator} from '@react-navigation/stack';
@@ -9,45 +9,41 @@ import {DebitCardScreen, SpendingLimitScreen} from './screens';
 import {PRIMARY_COLOR} from './helper/Constants';
 import {Provider} from 'react-redux';
 import {store} from './store/store';
+import {TabBar} from './component';
 
-function HomeScreen() {
+const BlankScreen = () => {
   return (
     <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Text>Home!</Text>
+      <Image
+        source={require('./assets/images/logo.png')}
+        style={{height: 64, width: 64}}
+      />
     </View>
   );
-}
+};
 
-function SettingsScreen() {
-  return (
-    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Text>Settings!</Text>
-    </View>
-  );
-}
-
-function HomeTabs() {
+const HomeTabs = () => {
   return (
     <Tab.Navigator
       initialRouteName="Debit Card"
+      tabBar={(props) => <TabBar {...props} />}
       tabBarOptions={{
         activeTintColor: PRIMARY_COLOR,
         inactiveTintColor: 'grey',
-        // safeAreaInsets: {bottom: 0, top: 0},
       }}>
-      <Tab.Screen name="Home" component={HomeScreen} />
+      <Tab.Screen name="Home" component={BlankScreen} />
       <Tab.Screen name="Debit Card" component={DebitCardScreen} />
-      <Tab.Screen name="Payment" component={HomeScreen} />
-      <Tab.Screen name="Credit" component={SettingsScreen} />
-      <Tab.Screen name="Profile" component={HomeScreen} />
+      <Tab.Screen name="Payment" component={BlankScreen} />
+      <Tab.Screen name="Credit" component={BlankScreen} />
+      <Tab.Screen name="Profile" component={BlankScreen} />
     </Tab.Navigator>
   );
-}
+};
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 
-export default function App() {
+const App = () => {
   return (
     <Provider store={store}>
       <SafeAreaProvider>
@@ -68,4 +64,6 @@ export default function App() {
       </SafeAreaProvider>
     </Provider>
   );
-}
+};
+
+export default App;
