@@ -15,21 +15,32 @@ interface Props {
 }
 
 export const FunctionalItem = (props: Props) => {
-  const {icon, name, content, haveSwitch, onChange, switchValue} = props;
+  const {
+    icon,
+    name,
+    content,
+    haveSwitch,
+    onChange,
+    switchValue,
+    onPress,
+  } = props;
 
   const onChangeSwitch = (value: boolean) => {
     onChange && onChange(value);
   };
 
   return (
-    <TouchableOpacity style={styles.itemContainer} activeOpacity={0.9}>
-      <View style={styles.contentContainer}>
+    <View style={styles.itemContainer}>
+      <TouchableOpacity
+        style={styles.contentContainer}
+        activeOpacity={0.9}
+        onPress={onPress}>
         {icon}
         <View>
           <AppText style={styles.nameStyle}>{name}</AppText>
           <AppText style={styles.contentStyle}>{content}</AppText>
         </View>
-      </View>
+      </TouchableOpacity>
       {haveSwitch && (
         <Switch
           onValueChange={onChangeSwitch}
@@ -37,6 +48,6 @@ export const FunctionalItem = (props: Props) => {
           style={{transform: [{scaleX: 0.7}, {scaleY: 0.7}]}}
         />
       )}
-    </TouchableOpacity>
+    </View>
   );
 };

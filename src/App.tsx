@@ -7,6 +7,8 @@ import {SafeAreaProvider} from 'react-native-safe-area-context';
 
 import {DebitCardScreen, SpendingLimitScreen} from './screens';
 import {PRIMARY_COLOR} from './helper/Constants';
+import {Provider} from 'react-redux';
+import {store} from './store/store';
 
 function HomeScreen() {
   return (
@@ -47,18 +49,23 @@ const Stack = createStackNavigator();
 
 export default function App() {
   return (
-    <SafeAreaProvider>
-      <NavigationContainer>
-        <StatusBar barStyle="light-content" />
-        <Stack.Navigator
-          initialRouteName="SpendingLimit"
-          screenOptions={{
-            headerShown: false,
-          }}>
-          <Stack.Screen name="Home" component={HomeTabs} />
-          <Stack.Screen name="SpendingLimit" component={SpendingLimitScreen} />
-        </Stack.Navigator>
-      </NavigationContainer>
-    </SafeAreaProvider>
+    <Provider store={store}>
+      <SafeAreaProvider>
+        <NavigationContainer>
+          <StatusBar barStyle="light-content" />
+          <Stack.Navigator
+            initialRouteName="Home"
+            screenOptions={{
+              headerShown: false,
+            }}>
+            <Stack.Screen name="Home" component={HomeTabs} />
+            <Stack.Screen
+              name="SpendingLimit"
+              component={SpendingLimitScreen}
+            />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </SafeAreaProvider>
+    </Provider>
   );
 }

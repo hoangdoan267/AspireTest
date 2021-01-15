@@ -1,19 +1,26 @@
 /* eslint-disable react-native/no-inline-styles */
 import React, {useState} from 'react';
-import {View, Image} from 'react-native';
+import {View, Image, TouchableOpacity} from 'react-native';
 import {SafeAreaView, useSafeArea} from 'react-native-safe-area-context';
-import {styles} from './styles';
+import {connect} from 'react-redux';
+import {useNavigation} from '@react-navigation/native';
+import {PRIMARY_COLOR, ActionTypes} from '../../helper/Constants';
 import {Header, AppText, MoneyTag} from '../../component';
 import {LimitAmount} from './component';
-import {TouchableOpacity} from 'react-native-gesture-handler';
-import {PRIMARY_COLOR} from '../../helper/Constants';
+import {styles} from './styles';
 
-const SpendingLimit = () => {
+const SpendingLimit = (props: any) => {
   const insets = useSafeArea();
+  const navigation = useNavigation();
 
   const [spendingLimit, setspendingLimit] = useState<number | undefined>(
-    undefined,
+    props.account.limitPayment,
   );
+
+  const onSaveSpendingLimit = () => {
+    props.updateLimitPayment(spendingLimit);
+    navigation.goBack();
+  };
 
   return (
     <SafeAreaView
@@ -61,6 +68,8 @@ const SpendingLimit = () => {
           </View>
           <TouchableOpacity
             activeOpacity={0.9}
+            disabled={!spendingLimit}
+            onPress={onSaveSpendingLimit}
             style={[
               styles.saveButton,
               {
@@ -76,4 +85,17 @@ const SpendingLimit = () => {
   );
 };
 
-export default SpendingLimit;
+const mapStateToProps = (state: any) => {
+  return {
+    account: state.account,
+  };
+};
+
+const mapDispatchToProps = (dispatch: any) => {
+  return {
+    updateLimitPayment: (value: number) =>
+      dispatch({type: ActionTypes.UPDATE_LIMIT_PAYMENT, value}),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SpendingLimit);

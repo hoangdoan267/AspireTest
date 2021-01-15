@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {View, Image} from 'react-native';
 import {SafeAreaView, useSafeArea} from 'react-native-safe-area-context';
 import ParallaxScroll from '@monterosa/react-native-parallax-scroll';
@@ -9,15 +9,35 @@ import {
   Header,
   MoneyTag,
 } from '../../component';
-import {PARALLAX_HEIGHT} from '../../helper/Constants';
+import {PARALLAX_HEIGHT, ActionTypes} from '../../helper/Constants';
 
 import {styles} from './styles';
+import {connect} from 'react-redux';
+import {LimitBar} from './component';
 
-const DebitCardScreen = () => {
+const DebitCardScreen = (props: any) => {
   const insets = useSafeArea();
+
+  useEffect(() => {
+    props.getCardInformation();
+    return () => {};
+  }, []);
 
   const renderHeader = () => {
     return <Header />;
+  };
+
+  const onChangeWeeklySpendingLimit = (value: boolean) => {
+    if (value) {
+      props.navigation.navigate('SpendingLimit');
+    } else {
+      props.updateLimitPayment(undefined);
+      // turn off weekly spending limit
+    }
+  };
+
+  const toggleFreezeCard = (value: boolean) => {
+    props.toggleFreezeCard(value);
   };
 
   return (
@@ -46,22 +66,18 @@ const DebitCardScreen = () => {
                   <AppText style={styles.contentText}>
                     Available balance
                   </AppText>
-                  <MoneyTag value={3000} />
+                  <MoneyTag value={props.account.balance} />
                 </View>
               </>
             );
           }}
           headerFixedBackgroundColor="transparent">
           <View style={styles.contentContainer}>
-            <BankCard
-              cardInformation={{
-                name: 'Mark Henry',
-                cardNumber: '5647341124132020',
-                expired: '12/20',
-                cvv: '456',
-              }}
-            />
+            <BankCard cardInformation={props.account.cardInformation} />
             <View>
+              {props.account.limitPayment && (
+                <LimitBar limit={props.account.limitPayment} spending={345} />
+              )}
               <FunctionalItem
                 name={'Top-up account'}
                 content={'Deposit money to your account to use with card'}
@@ -82,7 +98,8 @@ const DebitCardScreen = () => {
                   />
                 }
                 haveSwitch
-                switchValue={true}
+                switchValue={props.account.limitPayment ? true : false}
+                onChange={onChangeWeeklySpendingLimit}
               />
               <FunctionalItem
                 name={'Freeze card'}
@@ -94,7 +111,8 @@ const DebitCardScreen = () => {
                   />
                 }
                 haveSwitch
-                switchValue={false}
+                switchValue={props.account.cardInformation.isFreeze}
+                onChange={toggleFreezeCard}
               />
               <FunctionalItem
                 name={'Get a new card'}
@@ -124,4 +142,21 @@ const DebitCardScreen = () => {
   );
 };
 
-export default DebitCardScreen;
+const mapStateToProps = (state: any) => {
+  return {
+    account: state.account,
+  };
+};
+
+const mapDispatchToProps = (dispatch: any) => {
+  return {
+    getCardInformation: () =>
+      dispatch({type: ActionTypes.GET_ACCOUNT_INFORMATION}),
+    toggleFreezeCard: (value: boolean) =>
+      dispatch({type: ActionTypes.TOGGLE_FREEZE_STATUS, value}),
+    updateLimitPayment: (value: number) =>
+      dispatch({type: ActionTypes.UPDATE_LIMIT_PAYMENT, value}),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(DebitCardScreen);

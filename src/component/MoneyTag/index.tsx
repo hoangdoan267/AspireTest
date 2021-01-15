@@ -16,11 +16,9 @@ export const MoneyTag = (props: Props) => {
       <View style={styles.tag}>
         <AppText style={styles.tagText}>S$</AppText>
       </View>
-      {value && (
-        <AppText style={[styles.balanceText, {...textStyle}]}>
-          {value.toLocaleString()}
-        </AppText>
-      )}
+      <AppText style={[styles.balanceText, {...textStyle}]}>
+        {value?.toLocaleString()}
+      </AppText>
     </View>
   );
 };

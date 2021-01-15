@@ -13,6 +13,7 @@ export const styles = StyleSheet.create({
   },
   nameStyle: {
     fontSize: 14,
+    marginBottom: 4,
   },
   contentStyle: {
     fontSize: 13,
