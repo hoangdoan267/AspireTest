@@ -56,7 +56,10 @@ const DebitCardScreen = (props: any) => {
           parallaxForegroundScrollSpeed={2.5}
           bounces={false}
           showsVerticalScrollIndicator={false}
-          style={styles.parallaxStyle}
+          // eslint-disable-next-line react-native/no-inline-styles
+          style={{
+            paddingBottom: insets.bottom ? insets.bottom + 56 : 10,
+          }}
           renderParallaxBackground={() => {
             return (
               <>
@@ -71,7 +74,8 @@ const DebitCardScreen = (props: any) => {
               </>
             );
           }}
-          headerFixedBackgroundColor="transparent">
+          // headerFixedBackgroundColor="transparent"
+        >
           <View style={styles.contentContainer}>
             <BankCard cardInformation={props.account.cardInformation} />
             <View>

@@ -1,0 +1,153 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render FunctionalItem render correctly 1`] = `
+<View
+  style={
+    Object {
+      "flexDirection": "row",
+      "justifyContent": "space-between",
+      "marginTop": 32,
+      "width": "100%",
+    }
+  }
+>
+  <RNGestureHandlerButton
+    collapsable={false}
+    onGestureEvent={[Function]}
+    onGestureHandlerEvent={[Function]}
+    onGestureHandlerStateChange={[Function]}
+    onHandlerStateChange={[Function]}
+    rippleColor={0}
+  >
+    <View
+      accessible={true}
+      style={
+        Object {
+          "flexDirection": "row",
+          "opacity": 1,
+        }
+      }
+    >
+      <Image
+        source={
+          Object {
+            "testUri": "../../../src/assets/images/limit.png",
+          }
+        }
+      />
+      <View>
+        <Text
+          style={
+            Object {
+              "fontSize": 14,
+              "marginBottom": 4,
+            }
+          }
+        >
+          Hello World
+        </Text>
+        <Text
+          style={
+            Object {
+              "fontSize": 13,
+              "opacity": 0.4,
+              "width": 240,
+            }
+          }
+        >
+          Lorem ipsum
+        </Text>
+      </View>
+    </View>
+  </RNGestureHandlerButton>
+</View>
+`;
+
+exports[`render FunctionalItem render with switch 1`] = `
+<View
+  style={
+    Object {
+      "flexDirection": "row",
+      "justifyContent": "space-between",
+      "marginTop": 32,
+      "width": "100%",
+    }
+  }
+>
+  <RNGestureHandlerButton
+    collapsable={false}
+    onGestureEvent={[Function]}
+    onGestureHandlerEvent={[Function]}
+    onGestureHandlerStateChange={[Function]}
+    onHandlerStateChange={[Function]}
+    rippleColor={0}
+  >
+    <View
+      accessible={true}
+      style={
+        Object {
+          "flexDirection": "row",
+          "opacity": 1,
+        }
+      }
+    >
+      <Image
+        source={
+          Object {
+            "testUri": "../../../src/assets/images/limit.png",
+          }
+        }
+      />
+      <View>
+        <Text
+          style={
+            Object {
+              "fontSize": 14,
+              "marginBottom": 4,
+            }
+          }
+        >
+          Hello World
+        </Text>
+        <Text
+          style={
+            Object {
+              "fontSize": 13,
+              "opacity": 0.4,
+              "width": 240,
+            }
+          }
+        >
+          Lorem ipsum
+        </Text>
+      </View>
+    </View>
+  </RNGestureHandlerButton>
+  <RCTSwitch
+    accessibilityRole="switch"
+    onChange={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Array [
+        Object {
+          "height": 31,
+          "width": 51,
+        },
+        Object {
+          "transform": Array [
+            Object {
+              "scaleX": 0.7,
+            },
+            Object {
+              "scaleY": 0.7,
+            },
+          ],
+        },
+      ]
+    }
+    testID="switch-functional"
+    value={false}
+  />
+</View>
+`;

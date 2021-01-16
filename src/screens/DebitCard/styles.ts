@@ -32,7 +32,8 @@ export const styles = StyleSheet.create({
     backgroundColor: COLOR_BLUE,
   },
   parallaxStyle: {
-    flex: 1,
+    // paddingBottom: 56,
+    // flex: 1,
   },
   sectionContentStyle: {
     paddingHorizontal: CONTAINER_PADDING,

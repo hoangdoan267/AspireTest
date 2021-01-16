@@ -1,12 +1,13 @@
+/* eslint-disable react-native/no-inline-styles */
 import * as React from 'react';
-import {Text, View, StatusBar, Image} from 'react-native';
+import {View, StatusBar, Image} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createStackNavigator} from '@react-navigation/stack';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 
 import {DebitCardScreen, SpendingLimitScreen} from './screens';
-import {PRIMARY_COLOR} from './helper/Constants';
+import {PRIMARY_COLOR, COLOR_BLUE} from './helper/Constants';
 import {Provider} from 'react-redux';
 import {store} from './store/store';
 import {TabBar} from './component';
@@ -48,7 +49,7 @@ const App = () => {
     <Provider store={store}>
       <SafeAreaProvider>
         <NavigationContainer>
-          <StatusBar barStyle="light-content" />
+          <StatusBar barStyle="light-content" backgroundColor={COLOR_BLUE} />
           <Stack.Navigator
             initialRouteName="Home"
             screenOptions={{

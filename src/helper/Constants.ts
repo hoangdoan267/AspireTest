@@ -12,7 +12,8 @@ export const CARD_HEIGHT = (220 / 414) * screenWidth;
 
 export const CONTAINER_PADDING = (screenWidth - CARD_WIDTH) / 2;
 
-export const PARALLAX_HEIGHT = (260 * Dimensions.get('screen').height) / 667;
+export const PARALLAX_HEIGHT =
+  (260 * Dimensions.get('screen').height) / 667 - 10;
 
 export const ActionTypes = {
   GET_ACCOUNT_INFORMATION: 'GET_ACCOUNT_INFORMATION',

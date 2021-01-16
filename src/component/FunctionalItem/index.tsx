@@ -43,6 +43,7 @@ export const FunctionalItem = (props: Props) => {
       </TouchableOpacity>
       {haveSwitch && (
         <Switch
+          testID="switch-functional"
           onValueChange={onChangeSwitch}
           value={switchValue}
           style={{transform: [{scaleX: 0.7}, {scaleY: 0.7}]}}

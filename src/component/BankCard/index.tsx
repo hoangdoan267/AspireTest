@@ -64,6 +64,7 @@ export const BankCard = (props: Props) => {
         <TouchableOpacity
           style={styles.hideButton}
           activeOpacity={1}
+          testID="toggleButton"
           onPress={() => setIsHide(!isHide)}>
           {isHide ? (
             <Image

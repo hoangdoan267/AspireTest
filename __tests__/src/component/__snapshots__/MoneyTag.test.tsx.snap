@@ -1,0 +1,103 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render correctly with textStyle prop 1`] = `
+<View
+  style={
+    Object {
+      "flexDirection": "row",
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#01D167",
+        "borderRadius": 4,
+        "justifyContent": "center",
+        "marginRight": 10,
+        "paddingHorizontal": 12,
+        "paddingVertical": 3,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#ffffff",
+          "fontSize": 12,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      S$
+    </Text>
+  </View>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#ffffff",
+          "fontSize": 24,
+          "fontWeight": "bold",
+        },
+        Object {
+          "color": "black",
+        },
+      ]
+    }
+  >
+    2,000
+  </Text>
+</View>
+`;
+
+exports[`render correctly with value 1`] = `
+<View
+  style={
+    Object {
+      "flexDirection": "row",
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#01D167",
+        "borderRadius": 4,
+        "justifyContent": "center",
+        "marginRight": 10,
+        "paddingHorizontal": 12,
+        "paddingVertical": 3,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#ffffff",
+          "fontSize": 12,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      S$
+    </Text>
+  </View>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#ffffff",
+          "fontSize": 24,
+          "fontWeight": "bold",
+        },
+        Object {},
+      ]
+    }
+  >
+    2,000
+  </Text>
+</View>
+`;
