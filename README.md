@@ -60,6 +60,7 @@ Run `$ yarn test` to run some components Unit Test .
    ![Before](https://imgur.com/EFGn2Qh.png)
 
    **After**
+
    ![After](https://imgur.com/TPbOt34.png)
 
 [(Back to top)](#table-of-contents)
