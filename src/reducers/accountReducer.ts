@@ -20,7 +20,7 @@ const initialState: AccountState = {
     cvv: 'XXX',
     isFreeze: false,
   },
-  limitPayment: 5000,
+  limitPayment: undefined,
   balance: 0,
 };
 

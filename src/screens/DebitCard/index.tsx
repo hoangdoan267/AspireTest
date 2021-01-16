@@ -80,7 +80,7 @@ const DebitCardScreen = (props: any) => {
             <BankCard cardInformation={props.account.cardInformation} />
             <View>
               {props.account.limitPayment && (
-                <LimitBar limit={props.account.limitPayment} spending={345} />
+                <LimitBar limit={props.account.limitPayment} spending={1000} />
               )}
               <FunctionalItem
                 name={'Top-up account'}
@@ -94,7 +94,11 @@ const DebitCardScreen = (props: any) => {
               />
               <FunctionalItem
                 name={'Weekly spending limit'}
-                content={'You haven’t set any spending limit on card'}
+                content={
+                  !props.account.limitPayment
+                    ? 'You haven’t set any spending limit on card'
+                    : `Your weekly spending limit is S$${props.account.limitPayment.toLocaleString()}`
+                }
                 icon={
                   <Image
                     source={require('../../assets/images/limit.png')}
@@ -120,7 +124,7 @@ const DebitCardScreen = (props: any) => {
               />
               <FunctionalItem
                 name={'Get a new card'}
-                content={'Your debit card is currently active'}
+                content={'This deactivates your current debit card'}
                 icon={
                   <Image
                     source={require('../../assets/images/new_card.png')}
