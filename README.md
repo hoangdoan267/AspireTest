@@ -38,9 +38,12 @@ To use this project, follow these steps below:
 
 Running on iOS
 `$ npx react-native run-ios`
+
 ![iOS](https://imgur.com/X84ZKfN.png)
+
 Running on Android
 `$ npx react-native run-android`
+
 ![Android](https://imgur.com/7UYnKH5.png)
 
 ### 3. Testing
@@ -53,7 +56,9 @@ Run `$ yarn test` to run some components Unit Test .
    I set Spending Amount to 345, if you want to see how the Progress Bar works, please edit **src/screens/DebitCard/index.tsx:83**, change the value to the number you want.
 
    **Before**
+
    ![Before](https://imgur.com/EFGn2Qh.png)
+
    **After**
    ![After](https://imgur.com/TPbOt34.png)
 
