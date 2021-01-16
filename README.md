@@ -7,11 +7,11 @@ An Entrance Coding Challenge from Aspire
 
 ## Table of contents
 
-- [User Stories](#userstory)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Testing](#testing)
-- [Notes](#notes)
+- [User Stories](#1-user-stories)
+- [Installation](#2-installation)
+- [Usage](#3-usage)
+- [Testing](#4-testing)
+- [Notes](#5-notes)
 
 ### 1. User Stories
 
@@ -37,7 +37,7 @@ To use this project, follow these steps below:
 ### 3. Usage
 
 Running on iOS
-`$ npx react-native run-ios`
+`$ npx react-native run-ios`4-
 
 ![iOS](https://imgur.com/X84ZKfN.png)
 
@@ -46,11 +46,11 @@ Running on Android
 
 ![Android](https://imgur.com/7UYnKH5.png)
 
-### 3. Testing
+### 4. Testing
 
 Run `$ yarn test` to run some components Unit Test .
 
-### 4. Notes
+### 5. Notes
 
 1. Progress Bar UI
    I set Spending Amount to 345, if you want to see how the Progress Bar works, please edit **src/screens/DebitCard/index.tsx:83**, change the value to the number you want.
